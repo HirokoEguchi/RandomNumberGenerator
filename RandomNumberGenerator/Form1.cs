@@ -16,16 +16,20 @@ namespace RandomNumberGenerator
         //フィールドとしてRandomオブジェクトを宣言
         private Random random;
         private Label label1;
+        private Label label2;
         private Button button1;
 
 
+
         //Formの初期化
-     public Form1()
+        public Form1()
         {
             InitializeComponent();
 
             //Randomオブジェクトを初期化
             random = new Random();
+
+
 
             //Labelをコードで生成
             label1 = new Label
@@ -39,10 +43,24 @@ namespace RandomNumberGenerator
             //Labelをフォームに追加
             this.Controls.Add(label1);
 
+            /*Labelをコードで生成
+            label2 = new Label
+            {
+                Location = new Point(100, 100),
+                Size = new Size(100, 20),
+                Name = "label2",
+                Text = ""
+            };
+            */
+
+            //Labelをフォームに追加
+            this.Controls.Add(label2);
+
+
             //Buttonをコードで生成
             button1 = new Button
             {
-                Location = new Point(100, 100),
+                Location = new Point(100, 150),
                 Size = new Size(75, 23),
                 Name = "button1",
                 Text = "Generate"
@@ -56,13 +74,13 @@ namespace RandomNumberGenerator
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            //ランダムな数字を生成する
-            int randamNumber = random.Next(1, 101);
+            // ランダムな数字を生成する
+            int randomNumber = random.Next(1, 6);
 
-            //生成された数字をラベル人表示する
-            label1.Text = randamNumber.ToString();
+            // 生成された数字をラベルに表示する
+            label1.Text = randomNumber.ToString();
         }
     }
 
-   
+
 }

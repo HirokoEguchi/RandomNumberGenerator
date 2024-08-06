@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Security.Permissions;
 using System.Text;
@@ -18,14 +19,15 @@ namespace RandomNumberGenerator
         //フィールドとしてRandomオブジェクトを宣言
         private Random random;
         private Button button1;
-        /*
+        private Label label1;
+
         private Bitmap image1;
         private Bitmap image2;
         private Bitmap image3;
         private Bitmap image4;
         private Bitmap image5;
         private Bitmap image6;
-        */
+        
 
         private PictureBox picturebox1;
         private PictureBox picturebox2;
@@ -72,7 +74,7 @@ namespace RandomNumberGenerator
 
 
             //Labelをコードで生成
-            /*
+            
             label1 = new Label
             {
                 Location = new Point(100, 50),
@@ -83,7 +85,7 @@ namespace RandomNumberGenerator
 
             //Labelをフォームに追加
             this.Controls.Add(label1);
-            */
+            
 
 
             //Buttonをコードで生成
@@ -130,20 +132,22 @@ namespace RandomNumberGenerator
         */
 
 
+        //リストで要素数を用意する
+        List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6 };
 
-        List<int> numbers1 = new List<int> { 1, 2, 3, 4, 5, 6 };
-        List<int> numbers2 = new List<int> { 1, 2, 3, 4, 5, 6 };
-        List<int> numbers3 = new List<int> { 1, 2, 3, 4, 5, 6 };
+        //リストの要素数と画像を紐づける
+
+        
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             // ランダムに要素番号を選択
-            int randomIndex = random.Next(numbers1.Count); // 0からnumbers.Count - 1までのランダムな整数を生成
+            int randomIndex = random.Next(numbers.Count); // 0からnumbers.Count - 1までのランダムな整数を生成
 
             // ランダムに選ばれた要素を表示
-            int selectedNumber = numbers1[randomIndex];
+            int selectedNumber = numbers[randomIndex];
+            label1.Text = selectedNumber.ToString();
 
         }
     }
